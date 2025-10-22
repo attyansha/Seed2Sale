@@ -21,10 +21,17 @@ connectDB();
 // ========================
 app.use(helmet());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.CLIENT_URL] 
-    : ['http://localhost:3000'],
-  credentials: true
+  origin: [
+    'https://seed2sale-m2748xs5r-attyanshasingh-4945s-projects.vercel.app', // NEW DOMAIN
+    'https://seed2sale-mqidnwhi2-attyanshasingh-4945s-projects.vercel.app',
+    'https://seed2sale-d9bomi3i9-attyanshasingh-4945s-projects.vercel.app',
+    'https://seed2-sale-6d3kah5le-attyanshasingh-4945s-projects.vercel.app',
+    'http://localhost:3000'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+  optionsSuccessStatus: 200
 }));
 app.use(compression());
 app.use(morgan('combined'));
