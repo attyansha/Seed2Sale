@@ -7,7 +7,7 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light fmh-bottom-nav shadow-sm">
       <div className="container">
         <NavLink className="navbar-brand d-flex align-items-center gap-2" to="/">
-          {logo && <img src={logo} height="60" className="rounded-10" />}
+          {logo && <img src={logo} alt="Seed2Sale" height="60" className="rounded-10" />}
           <span><h1>Seed2Sale</h1></span>
         </NavLink>
 
