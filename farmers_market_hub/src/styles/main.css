@@ -1,0 +1,710 @@
+/* Base */
+:root{
+  --fmh-primary:#2E7D32;      /* leaf green */
+  --fmh-secondary:#F9A825;    /* sunflower */
+  --fmh-accent:#8BC34A;       /* light green */
+  --fmh-dark:#2F3A3B;
+  --fmh-light:#F7F9F5;
+  --fmh-muted:#6b7a7c;
+  --fmh-radius:14px;
+}
+
+html, body {
+  background: var(--fmh-light);
+  color: var(--fmh-dark);
+  font-size: 16px;
+}
+
+a { text-decoration: none; }
+
+.container { max-width: 1080px; }
+
+/* Global card styling - butter yellow */
+.card {
+  background-color: #e8f8ca !important;
+  border: 1px solid #e8f8ca !important;
+}
+
+.card:hover {
+  background-color: #dff9ac !important;
+}
+
+.card .card-title {
+  color: #2c2c2c !important;
+  font-weight: 600;
+}
+
+.card .card-text {
+  color: #4a4a4a !important;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #ffffffcc !important;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.navbar-brand {
+  color: var(--fmh-primary) !important;
+  letter-spacing: .3px;
+}
+.nav-link {
+  color: #334 !important;
+  font-weight: 500;
+}
+.nav-link.active,
+.nav-link:hover {
+  color: var(--fmh-primary) !important;
+}
+
+/* Hero */
+/* Hero with dark overlay for better text contrast */
+.fmh-hero {
+  position: relative;
+  border-radius: var(--fmh-radius);
+  padding: 60px 24px;
+  color: #e8f5e9; /* brighter text on dark overlay */
+
+  /* Overlay first, then image */
+  background:
+    linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('https://imgs.search.brave.com/IFRpTdPjtdwcleMm2PBf-oNByE1ai7tX7Iq-sD8PmlE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEyLzE0LzIwLzA0/LzM2MF9GXzEyMTQy/MDA0NTlfZks2VjJq/cG56QnJhSkJxbmZF/RncyYU1uWFVPZFhZ/WWEuanBn')
+    center/cover no-repeat;
+}
+
+/* Stronger, readable headings and subtext */
+.fmh-hero h1 {
+font-weight: 800;
+color: #f1fff2;
+text-shadow: 0 3px 12px rgba(0,0,0,.35);
+}
+
+.fmh-hero .lead {
+font-size: 1.15rem;
+color: #f1fff2;
+}
+
+/* Optional: make the chips stand out a bit more on the darker hero */
+.fmh-badge {
+background: rgba(255,255,255,0.85);
+border-color: rgba(255,255,255,0.9);
+color: #d2f1ad;
+}
+
+/* Sections */
+.section-title {
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  color: var(--fmh-muted);
+  margin-bottom: 24px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: var(--fmh-radius);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+}
+.card .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+.card-title { font-weight: 700; }
+.card-text { color: #445; }
+
+/* Vendor/Market grid */
+.fmh-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.fmh-col-4 { grid-column: span 12; }
+@media (min-width: 768px){
+  .fmh-col-4 { grid-column: span 6; }
+}
+@media (min-width: 992px){
+  .fmh-col-4 { grid-column: span 4; }
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--fmh-primary);
+  border-color: var(--fmh-primary);
+}
+.btn-primary:hover { filter: brightness(.95); }
+.btn-success { background: var(--fmh-accent); border-color: var(--fmh-accent); color:#e6faa6; }
+.btn-outline-primary {
+  color: var(--fmh-primary);
+  border-color: var(--fmh-primary);
+}
+.btn-outline-primary:hover {
+  background: var(--fmh-primary);
+  color: #fff;
+}
+
+.fmh-cta {
+border-radius: 14px;
+padding: 10px 22px;
+font-weight: 700;
+border-width: 2px;
+color: #d2f1ad !important; /* text color for both buttons */
+}
+
+/* Solid primary 8 */
+.btn-primary.fmh-cta {
+background: var(--fmh-primary);
+border-color: var(--fmh-primary);
+color: #d2f1ad !important; /* ensure text is the same */
+}
+.btn-primary.fmh-cta:hover {
+filter: brightness(.95);
+color: #d2f1ad; /* keep text color on hover */
+}
+
+/* Outline variant over dark hero */
+.btn-outline-primary.fmh-cta {
+border-color: rgba(210, 241, 173, 0.9);
+color: #d2f1ad; /* text color */
+background-color: transparent;
+}
+.btn-outline-primary.fmh-cta:hover {
+background-color: rgba(210, 241, 173, 1);
+border-color: rgba(210, 241, 173, 1);
+color: #0e2912; /* readable on light background */
+color: #0e2912; /* readable on light background */
+}
+/* Badges / chips */
+.fmh-badge {
+  display: inline-block;
+  background: #e9f6ea;
+  color: var(--fmh-primary);
+  border: 1px solid #d1ead3;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+/* Forms */
+.form-control {
+  border-radius: 10px;
+  border-color: #e3e7ea;
+}
+.form-control:focus {
+  border-color: var(--fmh-primary);
+  box-shadow: 0 0 0 .2rem rgba(46,125,50,.15);
+}
+
+/* Footer */
+/* Footer (translucent, theme-based) */
+.fmh-footer {    
+  position: fixed;
+  left: 0; right: 0; bottom: 0;     /* stays at bottom of content; remove if you want it fixed */
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  color: #0e2912;            /* readable on light glass */
+  background: color-mix(in oklab, var(--fmh-light) 70%, transparent); /* soft tint from theme */
+  /* Fallback for browsers without color-mix: */
+  background: rgba(217, 239, 194, 0.75);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  z-index: 1020;
+}
+
+.fmh-footer a,
+.fmh-footer-link {
+  color: var(--fmh-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.fmh-footer a:hover,
+.fmh-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* If you prefer a fixed footer that overlays content */
+.fmh-footer.is-fixed {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+}
+
+/* Utilities */
+.mt-section { margin-top: 28px; }
+.mb-section { margin-bottom: 28px; }
+.rounded-12 { border-radius: var(--fmh-radius); }
+.shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+
+/* Focus ring for a11y */
+:focus-visible {
+  outline: 3px solid #a9dfac;
+  outline-offset: 2px;
+}
+
+/* Auth toggle: ensure text is dark on white/inactive pill */
+.auth-toggle .btn-outline-primary {
+  color: #0e2912 !important; /* dark text on light background */
+  border-color: var(--fmh-primary);
+}
+
+/* Active pill text (if you want it white instead of light green) */
+.auth-toggle .btn-primary {
+  color: #ffffff !important; /* or #0e2912 if preferred */
+}
+
+/* Compact CTA size for cards/hero */
+.btn-compact {
+  padding: 6px 14px; /* was ~10px 22px */
+  font-size: 0.95rem; /* slightly smaller text */
+  line-height: 1.1;
+  border-radius: 12px; /* keep rounded look */
+}
+
+/* High-contrast outline CTA on light backgrounds */
+.btn-outline-primary.fmh-cta,
+.btn-outline-primary.fmh-cta.btn-compact {
+  color: #244729 !important; /* dark text for readability */
+  border-color: #244729 !important; /* brand green border for contrast */
+  background-color: transparent; /* keep outline look */
+}
+/* Hover/focus states that remain legible */
+.btn-outline-primary.fmh-cta:hover,
+.btn-outline-primary.fmh-cta:focus {
+  background-color: rgba(210, 241, 173, 0.9) !important; /* brand fill on hover */
+  color: #244729 !important; /* white text on green */
+  border-color: rgba(210, 241, 173, 0.9) !important; /* consistent border */
+}
+
+/* .MarketDetails .btn-outline-primary .fmh-cta {
+  border-color: #0e2912; /* dark border */
+  /* color: #0e2912; /* text color */
+  /* background-color: transparent;
+}
+.MarketDetails .btn-outline-primary:hover {
+  background-color: #0e2912;
+  border-color: #0e2912;
+  color: #0e2912; readable on light background */
+/* } */ 
+
+/* Market Details page only - scoped button styling */
+.market-details-page .btn-outline-primary.fmh-cta {
+  color: #244729 !important;          /* dark text for contrast */
+  border-color: #244729 !important;    /* brand green border */
+  background-color: rgba(210, 241, 173, 0.9);
+}
+
+.market-details-page .btn-outline-primary.fmh-cta:hover,
+.market-details-page .btn-outline-primary.fmh-cta:focus {
+  background-color: rgba(210, 241, 173, 0.9) !important; /* green fill on hover */
+  color: #244729;            /* white text on hover */
+  border-color: rgba(210, 241, 173, 0.9) !important;
+}
+
+.market-details-page .btn-primary.fmh-cta {
+  color: #ffffff !important;
+}
+
+/* Optional: compact size for these buttons only */
+.market-details-page .btn-compact {
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  line-height: 1.1;
+  border-radius: 12px;
+  min-height: 0;
+}
+
+/* Home-only CTA styling */
+.home-button .btn-outline-primary.fmh-cta {
+  /* outline version (e.g., Explore Vendors if using outline) */
+  color: rgba(210, 241, 173, .95) !important; /* text color on transparent/dark hero */
+  border-color: rgba(210, 241, 173, .95) !important; /* light-green border */
+  background-color: transparent;
+  text-shadow: 0 1px 0 rgba(0,0,0,.25); /* lift text over image */
+}
+
+.home-button .btn-outline-primary.fmh-cta:hover,
+.home-button .btn-outline-primary.fmh-cta:focus {
+  background-color: rgba(210, 241, 173, 1) !important; /* fill on hover */
+  color: #0e2912 !important; /* dark text on fill */
+  border-color: rgba(210, 241, 173, 1) !important;
+}
+
+/* Google Maps embed styling */
+.map-container {
+  position: relative;
+  background: #f5f5f5;
+}
+
+.map-container iframe {
+  transition: opacity 0.3s ease;
+}
+
+.map-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* Responsive map */
+@media (max-width: 768px) {
+  .map-container {
+    height: 250px !important;
+  }
+}
+
+/* Vendor Profile Page - FarmersMarketHub Theme */
+.vendor-profile-page {
+  background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.vendor-main-image {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+  transition: all 0.3s ease;
+}
+
+.vendor-main-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(40, 167, 69, 0.2);
+}
+
+.vendor-info-section {
+  padding: 1.5rem;
+}
+
+.vendor-profile-page .section-title {
+  color: #2d5016;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.vendor-details p {
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.market-badge {
+  background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.specialty-badge {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+}
+
+.vendor-actions .btn {
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-weight: 600;
+  text-transform: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.vendor-actions .btn-primary {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border: none;
+  color: white;
+}
+
+.vendor-actions .btn-outline-primary {
+  background: transparent;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+}
+
+.vendor-actions .btn-outline-primary:hover {
+  background: #4CAF50;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.vendor-actions .btn-outline-success {
+  background: transparent;
+  border: 2px solid #28a745;
+  color: #28a745;
+}
+
+.vendor-actions .btn-outline-success:hover {
+  background: #28a745;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+.vendor-actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Product Cards */
+.product-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 2px solid transparent;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.15);
+  border: 2px solid #e8f5e8;
+}
+
+.product-icon {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.product-name {
+  color: #2d5016;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.availability-badge {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  color: #155724;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid #b8dacc;
+}
+
+/* Section Subtitle */
+.vendor-profile-page .section-subtitle {
+  color: #2d5016;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Cards */
+.contact-card, .quick-actions-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.08);
+  border: 2px solid #e8f5e8;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover, .quick-actions-card:hover {
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.12);
+  border: 2px solid #d1e7dd;
+}
+
+.contact-card h5 {
+  color: #2d5016;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.quick-actions-card h6 {
+  color: #2d5016;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #e8f5e8;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-item i {
+  width: 24px;
+  margin-right: 15px;
+  margin-top: 3px;
+  font-size: 1.1rem;
+}
+
+.contact-item strong {
+  display: block;
+  color: #2d5016;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.contact-item a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+/* Quick Actions Buttons */
+.quick-actions-card .btn {
+  border-radius: 15px;
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+}
+
+.quick-actions-card .btn-outline-primary {
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+}
+
+.quick-actions-card .btn-outline-primary:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+.quick-actions-card .btn-outline-secondary {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+}
+
+.quick-actions-card .btn-outline-secondary:hover {
+  background: #6c757d;
+  color: white;
+}
+
+/* Breadcrumb/Back Navigation */
+.vendor-profile-page .breadcrumb-nav {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.vendor-profile-page .breadcrumb-nav a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vendor-profile-page .breadcrumb-nav a:hover {
+  color: #45a049;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-profile-page {
+    padding: 1rem 0;
+  }
+  
+  .vendor-main-image {
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+  }
+  
+  .vendor-profile-page .section-title {
+    font-size: 2rem;
+  }
+  
+  .vendor-actions .btn {
+    width: 100%;
+    margin-bottom: 0.8rem;
+    padding: 14px 24px;
+  }
+  
+  .product-card {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .contact-card, .quick-actions-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .vendor-info-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .vendor-profile-page .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .vendor-actions .btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}
+
+/* Loading Animation for Images */
+.vendor-main-image {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.vendor-main-image[src] {
+  background: none;
+  animation: none;
+}
+
+
+
