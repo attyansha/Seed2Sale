@@ -27,13 +27,13 @@ A full-stack farmers market platform connecting local farmers directly with cons
 
 ## 🛠️ Tech Stack
 
-### Frontend
+### Frontend -
 - **React.js** - Modern UI framework
 - **Bootstrap 5** - Responsive design
 - **React Router** - Client-side routing
 - **Vercel** - Production deployment
 
-### Backend
+### Backend -
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
 - **MongoDB Atlas** - Cloud database
