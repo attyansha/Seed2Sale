@@ -1,0 +1,33 @@
+﻿global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    scrape_interval: 15s
+
+  # Blackbox exporter for HTTP checks
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - https://seed2sale-production.up.railway.app    # Backend
+        - https://seed2-sale.vercel.app                   # Frontend
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # Blackbox exporter itself
+  - job_name: 'blackbox-exporter'
+    static_configs:
+      - targets: ['blackbox-exporter:9115']
+    scrape_interval: 30s
